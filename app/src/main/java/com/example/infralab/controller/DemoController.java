@@ -44,6 +44,12 @@ public class DemoController {
         return ResponseEntity.ok(body("UP", "health check 성공 상태"));
     }
 
+    @PostMapping("/admin/drain/on")
+    public Map<String, Object> drainOn() {
+        drainService.enableDraining();
+        return body("DRAINING", "drain mode enabled");
+    }
+
     @PostMapping("/admin/drain/off")
     public Map<String, Object> drainOff() {
         drainService.disableDraining();
